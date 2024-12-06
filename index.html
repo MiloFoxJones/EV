@@ -431,7 +431,7 @@
     const ConclusionCount = displayWordCount("Conclusion");
 
     // Calculate the sum of all sections' word counts
-    const totalWordCount = IntroductionCount + AnalysisCount + BEVProblemsCount + BEVBenefitsCount + ZeroCarbonCount + ConclusionCount;
+    const totalWordCount = AnalysisCount + BEVProblemsCount + BEVBenefitsCount + ZeroCarbonCount + ConclusionCount;
 
     // Display the total word count in the paragraph with id 'totalWordCount'
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
