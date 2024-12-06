@@ -2,7 +2,13 @@
 <html>
 
 <head>
-        
+    <img src="WebBanner2023.png" alt="Banner" width="1200" height="300">
+    <h1><b>ENG0018 Computer Laboratory 2024/25</b></h1>
+    <h2>Student URN: 6855314</h2>
+    <hr>
+    <h2 style="font-family:calibri;"><b>Conference paper: To what extent are battery electric vehicles the optimal choice for the future of transportation?</b></h2>
+    <hr>
+    
 <p id="date&time"></p>    
 <script>
     
@@ -43,13 +49,6 @@
 </style>
 
 <body style="background-color:#FFFFFF;margin-left:50px;">
-
-    <img src="WebBanner2023.png" alt="Banner" width="1200" height="300">
-    <h1><b>ENG0018 Computer Laboratory 2024/25</b></h1>
-    <h2>Student URN: 6855314</h2>
-    <hr>
-    <h2 style="font-family:calibri;"><b>Conference paper: To what extent are battery electric vehicles the optimal choice for the future of transportation?</b></h2>
-    <hr>
 
 <p class="ex1">
     
@@ -172,9 +171,9 @@
     </pre>
 </p>
 
-<figure>
+<p class="ex1">
+    Figure 1: ICE vs BEV comparison
     <table>
-        <caption>Figure 1: ICE vs BEV comparison</caption>
         <tr>
             <th></th>
             <th>Fiat 500</th>
@@ -185,7 +184,6 @@
             <td>£16,774</td>
             <td>£24,995</td>
         </tr>
-       </tr>
         <tr>
             <td>Weight</td>
             <td>960 kg</td>
@@ -201,8 +199,8 @@
             <td>14 pence</td>
             <td>6 pence</td>
         </tr>
+      
     </table>
-</figure>
 </p>
 
 <h4 id="Zero-Carbon Alternatives to Electric Vehicles">Zero-Carbon Alternatives to Electric Vehicles</h4>
@@ -393,15 +391,24 @@
 <script>
   // Function to calculate and display word count for a specified section
   function displayWordCount(sectionId, outputId) {
-    // Get the text content from the specified section
-    const text = document.getElementById(sectionId).textContent;
-    // Split text into words based on spaces and filter out any empty strings
-    const wordArray = text.trim().split(/\s+/);
+    // Get all paragraph elements under the specified section (not just the heading)
+    const paragraphs = document.querySelectorAll(`#${sectionId} + p`);
+    let totalText = '';
+
+    // Concatenate all text content from the paragraphs in the section
+    paragraphs.forEach(paragraph => {
+      totalText += paragraph.textContent + ' ';
+    });
+
+    // Split the text into words based on spaces and filter out any empty strings
+    const wordArray = totalText.trim().split(/\s+/);
     // Count the words
     const wordCount = wordArray.length;
+
     // Return the word count for summing purposes
     return wordCount;
   }
+
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
     // Calculate word count for each section and accumulate the total
@@ -411,11 +418,14 @@
     const BEVCount = displayWordCount("The problems with battery-powered electric vehicles");
     const BenefitsCount = displayWordCount("The benefits of battery-powered electric vehicles");
     const DrawbacksCount = displayWordCount("What are the key drawbacks of petrol, diesel and the internal combustion engine?");
+
     // Calculate the sum of all selected sections
     const totalWordCount = IntroductionCount + ConclusionCount + zeroCount + BEVCount + BenefitsCount + DrawbacksCount;
+
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
+
   // Run the function for specific sections and display total count when the page loads
   window.onload = displayTotalWordCount;
 </script>
@@ -425,3 +435,17 @@
         
 </body>
 </html>
+
+     
+    
+
+
+
+
+
+
+
+
+      
+      
+  
