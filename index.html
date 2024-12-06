@@ -400,14 +400,16 @@
  <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Word count function ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+
 <p id="totalWordCount"></p>
 <hr>
 
 <script>
   // Function to calculate and display word count for a specified section
   function displayWordCount(sectionId) {
-    // Select all paragraphs within the section with the given id
-    const paragraphs = document.querySelectorAll(`#${sectionId} ~ p`);
+    // Select all paragraphs directly after the section heading
+    const paragraphs = document.querySelectorAll(`#${sectionId} + p, #${sectionId} + p + p`);
     let totalText = '';
 
     // Concatenate all text content from the paragraphs
@@ -423,15 +425,16 @@
 
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
-    // Calculate word count for each section
+    // Calculate word count for each section except "Introduction"
     const IntroductionCount = displayWordCount("Introduction");
     const AnalysisCount = displayWordCount("Analysis and discussion");
+    const BEVProblemsCount = displayWordCount("The problems with battery-powered electric vehicles");
     const BEVBenefitsCount = displayWordCount("The benefits of battery-powered electric vehicles");
     const ZeroCarbonCount = displayWordCount("Zero-Carbon Alternatives to Electric Vehicles");
     const ConclusionCount = displayWordCount("Conclusion");
 
-    // Calculate the sum of all sections' word counts
-    const totalWordCount = IntroductionCount + AnalysisCount + BEVBenefitsCount + ZeroCarbonCount + ConclusionCount;
+    // Calculate the sum of all sections' word counts (excluding "Introduction")
+    const totalWordCount = IntroductionCount + AnalysisCount + BEVProblemsCount + BEVBenefitsCount + ZeroCarbonCount + ConclusionCount;
 
     // Display the total word count in the paragraph with id 'totalWordCount'
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
@@ -440,7 +443,6 @@
   // Run the function when the page loads
   window.onload = displayTotalWordCount;
 </script>
-
 
 
 
